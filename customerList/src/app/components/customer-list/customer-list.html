@@ -1,0 +1,14 @@
+<h2>Customer List</h2>
+
+<input type="text" placeholder="Search the name" [(ngModel)] = "searchText"/>
+
+<div *ngFor = "let customer of paginatedCustomers">
+    <app-customer-details [customer] = "customer"></app-customer-details>
+
+</div>
+
+<br>
+
+<button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+
+<button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= filteredCustomers.length">Next</button>
